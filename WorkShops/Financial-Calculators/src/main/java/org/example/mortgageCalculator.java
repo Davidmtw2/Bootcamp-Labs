@@ -1,35 +1,43 @@
 package org.example;
 
+import com.sun.tools.javac.Main;
+
 import java.util.Scanner;
 
 public class mortgageCalculator {
+    // Shared variables among methods
+    static double principal;
+    static double yearlyInterest;
+    static double loanLengthYears;
 
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        //Intro
-        System.out.print("Hello please enter your name Here: ");
+        System.out.print("Hello, please enter your name here: ");
         String name = scanner.nextLine();
-        System.out.print("Hello " + name + " welcome to ____ mortgage calculator");
-        System.out.print("\nWhat is your load amount?: ");
-        double principal = scanner.nextDouble();
+        System.out.println("Hello " + name + ", welcome to our mortgage calculator.");
+        System.out.print("What is your loan amount?: ");
+        principal = scanner.nextDouble();
         System.out.print("Ok!\nWhat is your interest rate?: ");
-        double yearlyInterest = scanner.nextDouble();
+        yearlyInterest = scanner.nextDouble();
         System.out.print("Great!\nWhat is your loan length in years?: ");
-        double loanLengthYears = scanner.nextDouble();
+        loanLengthYears = scanner.nextDouble();
         System.out.println("\n-------------------------");
 
+        information();  // Now calling information method to calculate and display the mortgage details
+    }
 
+    public static void information() {
         double interestMonths = interestMonths(yearlyInterest);
         double loanLengthMonths = loanLengthMonths(loanLengthYears);
         double monthlyPay = monthlyPayment(interestMonths, loanLengthMonths, principal);
         double totalInterest = totalInterest(monthlyPay, principal, loanLengthMonths);
-        System.out.println("This is your information");
-        System.out.println("Principle: " + String.format("%,.2f",principal) + "\nYearly interest%: " + String.format("%.2f",yearlyInterest)+"%" + "\nLoan length: " + String.format("%.0f",loanLengthYears) + "\n-------------------------\n" + "Total monthly payment: " + String.format("%.2f",monthlyPay) + "\nTotal interest payed: " + String.format("%.2f",totalInterest));
-
-
-    }
-    public static void information() {
-
+        System.out.println("This is your information:");
+        System.out.println("Principle: " + String.format("%,.2f", principal) +
+                "\nYearly interest rate: " + String.format("%.3f", yearlyInterest) + "%" +
+                "\nLoan length in years: " + String.format("%.0f", loanLengthYears) +
+                "\n-------------------------" +
+                "\nTotal monthly payment: " + String.format("%.2f", monthlyPay) +
+                "\nTotal interest paid: " + String.format("%.2f", totalInterest));
     }
     //converting from yearly to monthly interest rate
     public static double interestMonths(double yearlyInterest){
