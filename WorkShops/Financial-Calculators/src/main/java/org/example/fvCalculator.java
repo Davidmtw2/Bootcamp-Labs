@@ -16,7 +16,7 @@ public class fvCalculator {
         depositAmount = scanner.nextDouble();
         System.out.print("What is you interest rate: ");
         interestRate = scanner.nextDouble();
-        System.out.print("What is the amount of years of your loan: ");
+        System.out.print("What is the amount of years that the loan has matured: ");
         loanTimeInYears = scanner.nextDouble();
 
 
