@@ -43,6 +43,7 @@ public class Library {
             }
 
         }
+        System.out.println("-----------------------------------------------------------------------------------");
 
 
 
@@ -54,6 +55,8 @@ public class Library {
                 System.out.println("ID: " + books[i].getId() + ", ISBN: " + books[i].getIsbn() + ", Title: " + books[i].getTitle() + ", Checked out to: " + books[i].getCheckedOutTo() + ", Checked out on: " + books[i].getCheckedOutOn());
             }
         }
+        System.out.println("-----------------------------------------------------------------------------------");
+
 
     }
     public void checkOutBook(int bookId, String name, String date) {

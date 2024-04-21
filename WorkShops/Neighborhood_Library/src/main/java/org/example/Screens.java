@@ -47,7 +47,7 @@ public class Screens {
         int bookId = Integer.parseInt(scanner.nextLine());
         System.out.print("Enter your name: ");
         String name = scanner.nextLine();
-        System.out.print("Enter today's date (mm-dd-yyyy): ): ");
+        System.out.print("Enter today's date (mm-dd-yyyy): ");
         String date = scanner.nextLine();
         library.checkOutBook(bookId, name, date);
 
