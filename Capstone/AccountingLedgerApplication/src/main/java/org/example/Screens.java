@@ -191,35 +191,36 @@ public class Screens {
     public void displayAllEntries() {
         List<TransactionManager.Transaction> allTransactions = transactionManager.getTransactions();
         if (allTransactions.isEmpty()) {
-            simulateTyping("No transactions found.\n",2);
+            simulateTyping("No transactions found.\n",1);
         } else {
             for (TransactionManager.Transaction transaction : allTransactions) {
-                simulateTyping(transaction.toString()+"\n",2);
+                simulateTyping(transaction.toString()+"\n",1);
             }
         }
-        simulateTyping("---------------------------------------------\n",2);
-        simulateTyping("Displaying " + allTransactions.size() + " transactions.\n",2);
-        simulateTyping("---------------------------------------------\n",2);
+        simulateTyping("---------------------------------------------\n",1);
+        simulateTyping("Displaying " + allTransactions.size() + " transactions.\n",1);
+        simulateTyping("---------------------------------------------\n",1);
     }
 
     public void displayDeposits() {
         List<TransactionManager.Transaction> deposits = transactionManager.filterDeposits();
         if (deposits.isEmpty()) {
-            simulateTyping("No deposits found.",3);
+            simulateTyping("No deposits found.",1);
         } else {
             for (TransactionManager.Transaction deposit : deposits) {
-                simulateTyping(deposit+"\n",3);
+                simulateTyping(deposit+"\n",1);
             }
         }
+
     }
 
     public void displayPayments() {
         List<TransactionManager.Transaction> payments = transactionManager.filterPayments();
         if (payments.isEmpty()) {
-            simulateTyping("No payments found.",3);
+            simulateTyping("No payments found.",1);
         } else {
             for (TransactionManager.Transaction payment : payments) {
-                simulateTyping(payment+"\n",3);
+                simulateTyping(payment+"\n",1);
             }
         }
     }
@@ -247,7 +248,7 @@ public class Screens {
         for (int i = 0; i < 20; i++) {  // Number of cycles the spinner will make
             System.out.print("\r" + spinner[i % spinner.length]);
             try {
-                Thread.sleep(200);  // Pause to make the spinner visible (200 milliseconds)
+                Thread.sleep(150);  // Pause to make the spinner visible (200 milliseconds)
             } catch (InterruptedException e) {
                 Thread.currentThread().interrupt();  // Handle thread interruption
                 System.out.println("Interrupted");

@@ -23,11 +23,11 @@ public class ReportGenerator {
                 .filter(t -> LocalDate.parse(t.getDate(), formatter).isAfter(startOfMonth.minusDays(1)))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        simulateTyping("              Month-to-Date Report\n", 3);
-        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+        simulateTyping("              Month-to-Date Report\n", 1);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 1);
 
         for (TransactionManager.Transaction transaction : transactions) {
-            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+            simulateTyping(transaction.toString() + "\n", 1); // Ensure transaction.toString() formats it correctly
         }
     }
 
@@ -43,11 +43,11 @@ public class ReportGenerator {
                         LocalDate.parse(t.getDate(), formatter).compareTo(endOfPreviousMonth) <= 0)
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        simulateTyping("              Previous Month Report\n", 3);
-        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+        simulateTyping("              Previous Month Report\n", 1);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 1);
 
         for (TransactionManager.Transaction transaction : transactions) {
-            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+            simulateTyping(transaction.toString() + "\n", 1); // Ensure transaction.toString() formats it correctly
         }
     }
 
@@ -61,11 +61,11 @@ public class ReportGenerator {
                 .filter(t -> LocalDate.parse(t.getDate(), formatter).isAfter(startOfYear.minusDays(1)))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        simulateTyping("              Year-to-Date Report\n", 3);
-        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 5);
+        simulateTyping("              Year-to-Date Report\n", 1);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 1);
 
         for (TransactionManager.Transaction transaction : transactions) {
-            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+            simulateTyping(transaction.toString() + "\n", 1); // Ensure transaction.toString() formats it correctly
         }
     }
 
@@ -81,11 +81,11 @@ public class ReportGenerator {
                         LocalDate.parse(t.getDate(), formatter).compareTo(endOfLastYear) <= 0)
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        simulateTyping("              Previous Year Report\n", 3);
-        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+        simulateTyping("              Previous Year Report\n", 1);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 1);
 
         for (TransactionManager.Transaction transaction : transactions) {
-            simulateTyping(transaction.toString() + "\n", 3); // Assuming transaction.toString() formats the transaction properly
+            simulateTyping(transaction.toString() + "\n", 1); // Assuming transaction.toString() formats the transaction properly
         }
     }
 
@@ -97,11 +97,11 @@ public class ReportGenerator {
                 .filter(t -> t.getVendor().equalsIgnoreCase(vendor))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        simulateTyping("              Search Results for Vendor: " + vendor + "\n", 3);
-        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+        simulateTyping("              Search Results for Vendor: " + vendor + "\n", 1);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 1);
 
         for (TransactionManager.Transaction transaction : transactions) {
-            simulateTyping(transaction.toString() + "\n", 3); // Assuming transaction.toString() formats it correctly
+            simulateTyping(transaction.toString() + "\n", 1); // Assuming transaction.toString() formats it correctly
         }
     }
 
