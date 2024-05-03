@@ -11,6 +11,9 @@ public class Main {
         // Instantiates the Screens class with the transaction manager
         Screens screens = new Screens(transactionManager);
 
+        // Show loading animation
+        screens.loadingSpinner();
+
         // Displays the main menu to the user
         screens.displayMainMenu();
     }

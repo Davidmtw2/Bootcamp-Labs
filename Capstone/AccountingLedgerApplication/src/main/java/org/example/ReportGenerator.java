@@ -23,7 +23,12 @@ public class ReportGenerator {
                 .filter(t -> LocalDate.parse(t.getDate(), formatter).isAfter(startOfMonth.minusDays(1)))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        displayTransactions(transactions, "Month-to-Date Report");
+        simulateTyping("              Month-to-Date Report\n", 3);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+
+        for (TransactionManager.Transaction transaction : transactions) {
+            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+        }
     }
 
     // Method to generate a report for transactions from the previous month
@@ -38,7 +43,12 @@ public class ReportGenerator {
                         LocalDate.parse(t.getDate(), formatter).compareTo(endOfPreviousMonth) <= 0)
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        displayTransactions(transactions, "Previous Month Report");
+        simulateTyping("              Previous Month Report\n", 3);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+
+        for (TransactionManager.Transaction transaction : transactions) {
+            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+        }
     }
 
     // Method to generate a report for transactions from the beginning of the year to the current date
@@ -51,7 +61,12 @@ public class ReportGenerator {
                 .filter(t -> LocalDate.parse(t.getDate(), formatter).isAfter(startOfYear.minusDays(1)))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        displayTransactions(transactions, "Year-to-Date Report");
+        simulateTyping("              Year-to-Date Report\n", 3);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 5);
+
+        for (TransactionManager.Transaction transaction : transactions) {
+            simulateTyping(transaction.toString() + "\n", 3); // Ensure transaction.toString() formats it correctly
+        }
     }
 
     // Method to generate a report for transactions from the previous year
@@ -66,7 +81,12 @@ public class ReportGenerator {
                         LocalDate.parse(t.getDate(), formatter).compareTo(endOfLastYear) <= 0)
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        displayTransactions(transactions, "Previous Year Report");
+        simulateTyping("              Previous Year Report\n", 3);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+
+        for (TransactionManager.Transaction transaction : transactions) {
+            simulateTyping(transaction.toString() + "\n", 3); // Assuming transaction.toString() formats the transaction properly
+        }
     }
 
     // Method to search for transactions by vendor
@@ -77,7 +97,12 @@ public class ReportGenerator {
                 .filter(t -> t.getVendor().equalsIgnoreCase(vendor))
                 .collect(Collectors.toList());
         // Display the transactions with a specific title
-        displayTransactions(transactions, "Search Results for Vendor: " + vendor);
+        simulateTyping("              Search Results for Vendor: " + vendor + "\n", 3);
+        simulateTyping("\033[1;33mDate        | Time    | Description                    | Vendor                    | Amount\033[0m\n", 3);
+
+        for (TransactionManager.Transaction transaction : transactions) {
+            simulateTyping(transaction.toString() + "\n", 3); // Assuming transaction.toString() formats it correctly
+        }
     }
 
     // Private helper method to display transactions
@@ -87,6 +112,17 @@ public class ReportGenerator {
             System.out.println("No transactions found."); // If no transactions found, print a message
         } else {
             transactions.forEach(System.out::println); // Print each transaction
+        }
+    }
+    private void simulateTyping(String message, int delay) {
+        for (char ch : message.toCharArray()) {
+            System.out.print(ch);
+            try {
+                Thread.sleep(delay);
+            } catch (InterruptedException e) {
+                Thread.currentThread().interrupt();
+                return;
+            }
         }
     }
 }

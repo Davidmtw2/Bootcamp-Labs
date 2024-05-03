@@ -71,7 +71,9 @@ public class TransactionManager {
         } catch (NumberFormatException e) {
             System.out.println("Error parsing amount: " + e.getMessage());
         }
-        System.out.println("Total transactions loaded: " + transactions.size());
+        System.out.println("\nLOADING APPLICATION, PLEASE WAIT..." );
+//        System.out.println("Total transactions loaded: " + transactions.size());
+
     }
 
 
@@ -108,6 +110,7 @@ public class TransactionManager {
         private String description;
         private String vendor;
         private double amount;
+
 
         public Transaction(String date, String time, String description, String vendor, double amount) {
             this.date = date;
@@ -158,7 +161,8 @@ public class TransactionManager {
         }
 
         public String toString() {
-            return String.format("%s, %s, %s, %s, %.2f", date, time, description, vendor, amount);
+            return String.format("\033[1;33m%-12s\033[0m| \033[1;33m%-8s\033[0m| %-30s | %-25s | \033[1;32m%.2f\033[0m",
+                    date, time, description, vendor, amount);
         }
     }
 }
