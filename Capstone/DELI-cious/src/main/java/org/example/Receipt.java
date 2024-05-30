@@ -28,11 +28,17 @@ public class Receipt {
             receipt.append("Sandwich total: $").append(String.format("%.2f", sandwich.getPrice())).append("\n");
             receipt.append("    - ").append(sandwich.getSize()).append("\n");
             receipt.append("    - ").append(sandwich.getBreadType()).append(" Bread\n");
-            receipt.append("    - Meat: ").append(sandwich.getMeat()).append("\n");
+            if (sandwich.getMeat() != null && !sandwich.getMeat().isEmpty()) {
+                receipt.append("    - Meat: ").append(sandwich.getMeat()).append("\n");
+            }
+
             if (sandwich.isExtraMeat()) {
                 receipt.append("    - Extra meat\n");
             }
-            receipt.append("    - Cheese: ").append(sandwich.getCheese()).append("\n");
+            if (sandwich.getCheese() != null && !sandwich.getCheese().isEmpty()) {
+                receipt.append("    - Cheese: ").append(sandwich.getCheese()).append("\n");
+                }
+
             if (sandwich.isExtraCheese()) {
                 receipt.append("    - Extra cheese\n");
             }
