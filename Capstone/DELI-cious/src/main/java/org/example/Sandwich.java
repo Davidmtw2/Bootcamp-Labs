@@ -23,13 +23,13 @@ public class Sandwich extends Product {
     private void initializeBasePrice() {
         //Base price for the bread based on size
         switch(size) {
-            case "4\"":
+            case "4":
                 this.price = 5.50;
                 break;
-            case "8\"":
+            case "8":
                 this.price = 7.00;
                 break;
-            case "12\"":
+            case "12":
                 this.price = 8.50;
                 break;
         }
@@ -39,48 +39,74 @@ public class Sandwich extends Product {
     }
 
     public void setMeat(String meat) {
-        this.meat = meat;
-        //Add base meat price based on size
-        switch(size) {
-            case "4\"":
-                this.price += 1.00; // Price for 4" meat
-                break;
-            case "8\"":
-                this.price += 2.00; // Price for 8" meat
-                break;
-            case "12\"":
-                this.price += 3.00; // Price for 12" meat
-                break;
+        if(!meat.isEmpty()) {
+            this.meat = meat;
+            //Add base meat price based on size
+            switch (size) {
+                case "4":
+                    this.price += 1.00; // Price for 4" meat
+                    break;
+                case "8":
+                    this.price += 2.00; // Price for 8" meat
+                    break;
+                case "12":
+                    this.price += 3.00; // Price for 12" meat
+                    break;
+            }
         }
     }
 
     public void setExtraMeat(boolean extraMeat) {
         this.extraMeat = extraMeat;
         if (extraMeat) {
-            this.price += (size.equals("4\"") ? 0.50 : size.equals("8\"") ? 1.00 : size.equals("12\"") ? 1.50 : 0);
+            // Add additional meat cost based on size
+            switch(size) {
+                case "4":
+                    this.price += 0.50; // Additional price for 4" meat
+                    break;
+                case "8":
+                    this.price += 1.00; // Additional price for 8" meat
+                    break;
+                case "12":
+                    this.price += 1.50; // Additional price for 12" meat
+                    break;
+            }
         }
     }
 
     public void setCheese(String cheese) {
-        this.cheese = cheese;
-        // Add base cheese price based on size
-        switch(size) {
-            case "4\"":
-                this.price += 0.75; // Price for 4" cheese
-                break;
-            case "8\"":
-                this.price += 1.50; // Price for 8" cheese
-                break;
-            case "12\"":
-                this.price += 2.25; // Price for 12" cheese
-                break;
+        if(!cheese.isEmpty()) {
+            this.cheese = cheese;
+            // Add base cheese price based on size
+            switch (size) {
+                case "4":
+                    this.price += 0.75; // Price for 4" cheese
+                    break;
+                case "8":
+                    this.price += 1.50; // Price for 8" cheese
+                    break;
+                case "12":
+                    this.price += 2.25; // Price for 12" cheese
+                    break;
+            }
         }
     }
 
     public void setExtraCheese(boolean extraCheese) {
         this.extraCheese = extraCheese;
         if (extraCheese) {
-            this.price += (size.equals("4\"") ? 0.30 : size.equals("8\"") ? 0.60 : size.equals("12\"") ? 0.90 : 0);
+            // Add additional cheese cost based on size
+            switch(size) {
+                case "4":
+                    this.price += 0.30; // Additional price for 4" cheese
+                    break;
+                case "8":
+                    this.price += 0.60; // Additional price for 8" cheese
+                    break;
+                case "12":
+                    this.price += 0.90; // Additional price for 12" cheese
+                    break;
+            }
         }
     }
 

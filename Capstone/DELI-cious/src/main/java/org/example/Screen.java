@@ -1,8 +1,6 @@
 package org.example;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 import java.util.Scanner;
 
 public interface Screen {
@@ -167,6 +165,11 @@ class AddItemScreen implements Screen {
         // Select meat
         System.out.println("Choose meat (steak, ham, salami, roast beef, chicken, bacon): ");
         String meat = scanner.nextLine();
+        while (breadType.isEmpty() || (!breadType.equalsIgnoreCase("white") && !breadType.equalsIgnoreCase("wheat")
+                && !breadType.equalsIgnoreCase("rye") && !breadType.equalsIgnoreCase("wrap"))) {
+            System.out.println("Please select a valid bread type:");
+            breadType = scanner.nextLine();
+        }
         sandwich.setMeat(meat);
 
         // Extra meat option
@@ -212,7 +215,7 @@ class AddItemScreen implements Screen {
         }
 
         // Add sauces
-        System.out.println("Select the toppings they would like (type 'done' to finish): ");
+        System.out.println("Select the sauces they would like (type 'done' to finish): ");
         String sauceInput;
         while (!(sauceInput = scanner.nextLine()).equalsIgnoreCase("done")) {
             if (Arrays.asList(availableSauces).contains(sauceInput.toLowerCase())) {

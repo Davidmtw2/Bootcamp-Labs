@@ -1,0 +1,17 @@
+Order Receipt
+Date: 2024/05/30 16:25:54
+Sandwich total: $12.10
+    - 8
+    - wrap Bread
+    - Meat: chicken
+    - Extra meat
+    - Cheese: cheddar
+    - Extra cheese
+    - lettuce
+    - jalapenos
+    - guacamole
+    - mayo
+    - ketchup
+Drinks: cola, large: $3.00
+Chips: bbq: $1.50
+Total: $16.60
