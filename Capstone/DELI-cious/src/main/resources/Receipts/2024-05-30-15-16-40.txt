@@ -1,8 +1,0 @@
-Order Receipt
-Date: 2024/05/30 15:16:40
-Sandwich total: $10.50
-    - 8
-    - rye Bread
-Drinks: cola, large: $3.00
-Chips: bbq: $1.50
-Total: $15.00
