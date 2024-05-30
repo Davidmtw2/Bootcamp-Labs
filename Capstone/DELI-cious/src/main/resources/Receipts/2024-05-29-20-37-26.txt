@@ -1,0 +1,22 @@
+Order Receipt
+Date: 2024/05/29 20:37:26
+Sandwich total: $6.30
+    - 4"
+    - white Bread
+    - Meat, ham
+    - Extra meat
+    - Cheese, american
+    - Extra cheese
+    - lettuce
+    - onions
+    - tomatoes
+    - jalapenos
+    - guacamole
+    - mayo
+    - mustard
+    - ketchup
+    - ranch
+    - vinaigrette
+Drinks, cola, large: $3.00
+Chips, bbq: $1.50
+Total: $10.80

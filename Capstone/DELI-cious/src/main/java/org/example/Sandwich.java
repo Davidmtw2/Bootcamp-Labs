@@ -1,0 +1,182 @@
+package org.example;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Sandwich extends Product {
+    private String size;
+    private String breadType;
+    private String meat;
+    private boolean extraMeat;
+    private String cheese;
+    private boolean extraCheese;
+    private List<Topping> regularToppings;
+    private List<Topping> regularSauces;
+//
+    public Sandwich(String size) {
+        super();
+        this.size = size;
+        regularToppings = new ArrayList<>();
+        regularSauces = new ArrayList<>();
+        initializeBasePrice();
+    }
+    private void initializeBasePrice() {
+        //Base price for the bread based on size
+        switch(size) {
+            case "4\"":
+                this.price = 5.50;
+                break;
+            case "8\"":
+                this.price = 7.00;
+                break;
+            case "12\"":
+                this.price = 8.50;
+                break;
+        }
+    }
+    public void setBreadType(String breadType) {
+        this.breadType = breadType;
+    }
+
+    public void setMeat(String meat) {
+        this.meat = meat;
+        //Add base meat price based on size
+        switch(size) {
+            case "4\"":
+                this.price += 1.00; // Price for 4" meat
+                break;
+            case "8\"":
+                this.price += 2.00; // Price for 8" meat
+                break;
+            case "12\"":
+                this.price += 3.00; // Price for 12" meat
+                break;
+        }
+    }
+
+    public void setExtraMeat(boolean extraMeat) {
+        this.extraMeat = extraMeat;
+        if (extraMeat) {
+            this.price += (size.equals("4\"") ? 0.50 : size.equals("8\"") ? 1.00 : size.equals("12\"") ? 1.50 : 0);
+        }
+    }
+
+    public void setCheese(String cheese) {
+        this.cheese = cheese;
+        // Add base cheese price based on size
+        switch(size) {
+            case "4\"":
+                this.price += 0.75; // Price for 4" cheese
+                break;
+            case "8\"":
+                this.price += 1.50; // Price for 8" cheese
+                break;
+            case "12\"":
+                this.price += 2.25; // Price for 12" cheese
+                break;
+        }
+    }
+
+    public void setExtraCheese(boolean extraCheese) {
+        this.extraCheese = extraCheese;
+        if (extraCheese) {
+            this.price += (size.equals("4\"") ? 0.30 : size.equals("8\"") ? 0.60 : size.equals("12\"") ? 0.90 : 0);
+        }
+    }
+
+    public void addRegularTopping(Topping topping) {
+        regularToppings.add(topping);
+    }
+    public void addRegularSauce(Topping sauce) {
+        regularSauces.add(sauce);
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String getBreadType() {
+        return breadType;
+    }
+
+    public String getMeat() {
+        return meat;
+    }
+
+    public boolean isExtraMeat() {
+        return extraMeat;
+    }
+
+    public String getCheese() {
+        return cheese;
+    }
+
+    public boolean isExtraCheese() {
+        return extraCheese;
+    }
+
+    public List<Topping> getRegularToppings() {
+        return regularToppings;
+    }
+
+    public List<Topping> getRegularSauces() {
+        return regularSauces;
+    }
+
+    @Override
+    public double getPrice() {
+        return price;
+    }
+    @Override
+    public String getDescription() {
+        return getSummary();
+    }
+    public String getSummary() {
+        StringBuilder summary = new StringBuilder();
+        summary.append("Sandwich Summary:\n");
+        summary.append("Size: " + size + "\n");
+        summary.append("Bread: " + breadType + "\n");
+        summary.append("Meat: " + meat + (extraMeat ? " (Extra Meat)" : "") + "\n");
+        summary.append("Cheese: " + cheese + (extraCheese ? " (Extra Cheese)" : "") + "\n");
+        summary.append("Toppings: \n");
+        summary.append("Sauces: \n");
+        for (Topping t : regularToppings) {
+            summary.append("- " + t.getName() + "\n");
+        }
+        for (Topping s : regularSauces) {
+            summary.append("- " + s.getName() + " \n");
+        }
+        summary.append("Total Price: $" + String.format("%.2f", price));
+        return summary.toString();
+    }
+
+
+
+
+//    private String size; // "4\"", "8\"", "12\""
+//    private String breadType; // "white", "wheat", "rye", "wrap"
+//    private boolean isToasted;
+//    private List<Topping> toppings = new ArrayList<>();
+//
+//    public Sandwich(double price, String description, String size, String breadType, boolean isToasted) {
+//        super(price, description);
+//        this.size = size;
+//        this.breadType = breadType;
+//        this.isToasted = isToasted;
+//    }
+//
+//    public void addTopping(Topping topping) {
+//        toppings.add(topping);
+//    }
+//
+//    public double calculatePrice() {
+//        double total = this.price;
+//        for (Topping topping : toppings) {
+//            total += topping.getPrice();
+//        }
+//        return total;
+//    }
+
+    // Additional methods as required for setting and retrieving properties
+}
+
