@@ -15,5 +15,4 @@ public abstract class Chips extends Product {
     public void setType(String type) {
         this.type = type;
     }
-// Additional methods as required for setting and retrieving properties
 }

@@ -65,32 +65,3 @@ public class Receipt {
     }
 }
 
-
-
-
-
-//package org.example;
-//
-//import org.example.Order;
-//
-//import java.io.FileNotFoundException;
-//import java.io.PrintWriter;
-//
-//public class Receipt {
-//    private String filePath;
-//    private String content;
-//
-//    public Receipt(String filePath, String content) {
-//        this.filePath = filePath;
-//        this.content = content;
-//    }
-//
-//    public void generate(Order order) {
-//        // Write the content to a file specified by filePath
-//        try (PrintWriter out = new PrintWriter(filePath)) {
-//            out.println(content);
-//        } catch (FileNotFoundException e) {
-//            System.err.println("Error generating receipt: " + e.getMessage());
-//        }
-//    }
-//}

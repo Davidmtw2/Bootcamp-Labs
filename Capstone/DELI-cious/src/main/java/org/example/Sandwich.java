@@ -150,33 +150,5 @@ public class Sandwich extends Product {
         return summary.toString();
     }
 
-
-
-
-//    private String size; // "4\"", "8\"", "12\""
-//    private String breadType; // "white", "wheat", "rye", "wrap"
-//    private boolean isToasted;
-//    private List<Topping> toppings = new ArrayList<>();
-//
-//    public Sandwich(double price, String description, String size, String breadType, boolean isToasted) {
-//        super(price, description);
-//        this.size = size;
-//        this.breadType = breadType;
-//        this.isToasted = isToasted;
-//    }
-//
-//    public void addTopping(Topping topping) {
-//        toppings.add(topping);
-//    }
-//
-//    public double calculatePrice() {
-//        double total = this.price;
-//        for (Topping topping : toppings) {
-//            total += topping.getPrice();
-//        }
-//        return total;
-//    }
-
-    // Additional methods as required for setting and retrieving properties
 }
 

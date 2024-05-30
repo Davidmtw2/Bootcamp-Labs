@@ -17,5 +17,4 @@ public abstract class Drink extends Product {
     public String getFlavor() {
         return flavor;
     }
-// Additional methods as required for setting and retrieving properties
 }
