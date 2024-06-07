@@ -12,6 +12,7 @@ public class Sandwich extends Product {
     private boolean extraCheese;
     private List<Topping> regularToppings;
     private List<Topping> regularSauces;
+
 //
     public Sandwich(String size) {
         super();

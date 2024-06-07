@@ -1,0 +1,16 @@
+Order Receipt
+Date: 2024/05/31 10:56:49
+Sandwich total: $14.65
+    - 12
+    - wrap Bread
+    - Meat: ham, bacon
+    - Cheese: swiss
+    - Extra cheese
+    - lettuce
+    - tomatoes
+    - jalapenos
+    - guacamole
+    - mayo
+Drinks: Cola, large: $3.00
+Chips: BBQ: $1.50
+Total: $19.15
